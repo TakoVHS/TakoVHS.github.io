@@ -23,10 +23,12 @@ jobs:
       - name: Validate required files
         run: |
           test -f index.html
+          test -f 404.html
           test -f research.html
           test -f styles.css
           test -f robots.txt
           test -f sitemap.xml
+          test -f README.md
           test -f CNAME
           test -f .nojekyll
           test -f papers/index.html
