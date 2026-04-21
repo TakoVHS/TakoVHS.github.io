@@ -24,10 +24,14 @@ jobs:
         run: |
           test -f index.html
           test -f research.html
+          test -f 404.html
           test -f styles.css
           test -f robots.txt
           test -f sitemap.xml
+          test -f CNAME
+          test -f .nojekyll
           test -f papers/index.html
+          test -f papers/cogniprint-v0.1.pdf
           test -f software/index.html
           test -f disclaimer/index.html
   deploy:
