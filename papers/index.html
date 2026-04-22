@@ -7,21 +7,28 @@
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/research.html">Research</a>
-    <a href="/papers/">Papers</a>
-    <a href="/software/">Software</a>
-    <a href="/disclaimer/">Disclaimer</a>
-  </nav>
+  <div class="page">
+    <nav>
+      <a href="/">Home</a>
+      <a href="/research.html">Research</a>
+      <a href="/papers/">Papers</a>
+      <a href="/software/">Software</a>
+      <a href="/disclaimer/">Disclaimer</a>
+    </nav>
 
-  <h1>Working Papers and Preprints</h1>
+    <header class="page-header">
+      <h1>Working Papers and Preprints</h1>
+      <p class="lede">A small public archive for CogniPrint manuscripts and supporting source materials.</p>
+    </header>
 
-  <div class="paper">
-    <h3>Cognitive Fingerprints: A Mathematical Framework for Statistical Profiling of Text</h3>
-    <p><strong>Author:</strong> Adriashkin Roman<br><strong>Date:</strong> 2026 (v0.1)</p>
-    <p><strong>Abstract:</strong> We introduce a mathematical framework for representing text samples by compact finite-dimensional profiles, termed cognitive fingerprints. The framework is based on a feature map from token sequences into a Euclidean space of empirical statistics. This representation supports quantitative comparison of text samples through profile distances and similarity measures, as well as perturbation-based questions about stability under bounded edits.</p>
-    <p><strong>Links:</strong> <a href="/papers/cogniprint-v0.1.pdf">PDF</a> | <a href="https://github.com/TakoVHS/CogniPrint/tree/main/paper">LaTeX source</a> | <span>arXiv submission pending</span></p>
+    <main>
+      <div class="paper">
+        <h2 class="paper-title">Cognitive Fingerprints: A Mathematical Framework for Statistical Profiling of Text</h2>
+        <p><strong>Author:</strong> Adriashkin Roman<br><strong>Date:</strong> 2026 (v0.1)</p>
+        <p><strong>Abstract:</strong> We introduce a mathematical framework for representing text samples by compact finite-dimensional profiles, termed cognitive fingerprints. The framework is based on a feature map from token sequences into a Euclidean space of empirical statistics. This representation supports quantitative comparison of text samples through profile distances and similarity measures, as well as perturbation-based questions about stability under bounded edits.</p>
+        <p class="paper-links"><a href="/papers/cogniprint-v0.1.pdf">PDF</a><a href="https://github.com/TakoVHS/CogniPrint/tree/main/paper">LaTeX source</a><span class="status">arXiv submission pending</span></p>
+      </div>
+    </main>
   </div>
 </body>
 </html>
