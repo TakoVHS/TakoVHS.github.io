@@ -187,6 +187,35 @@ strong {
   color: var(--muted);
 }
 
+.citation-box {
+  margin-top: 1.15rem;
+  padding: 1rem 1.05rem;
+  border: 1px solid var(--rule);
+  background: var(--surface);
+}
+
+.citation-box p:first-child {
+  margin-top: 0;
+}
+
+.citation-text,
+.codeish {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  font-size: 0.9rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+.inline-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 0.8rem;
+  margin-top: 0.9rem;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.9rem;
+}
+
 .small,
 footer {
   color: var(--muted);
@@ -227,5 +256,9 @@ footer {
 
   h2 {
     margin-top: 2.3rem;
+  }
+
+  .citation-box {
+    padding: 0.85rem 0.9rem;
   }
 }
