@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Deal Room — Repo Rescue & HR Autopilot</title>
+  <meta name="description" content="AI-first technical operator: repo rescue, launch readiness, Telegram automation and HR Autopilot pilots." />
+  <style>
+    :root {
+      --bg: #080a0f;
+      --panel: #10141f;
+      --panel2: #151b2a;
+      --text: #eef2ff;
+      --muted: #a7b0c4;
+      --line: rgba(255,255,255,.12);
+      --accent: #8ee6ff;
+      --accent2: #b497ff;
+      --ok: #69f0ae;
+      --warn: #ffd166;
+      --shadow: 0 24px 70px rgba(0,0,0,.45);
+      --radius: 24px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 20% 10%, rgba(142,230,255,.18), transparent 30%),
+        radial-gradient(circle at 80% 0%, rgba(180,151,255,.20), transparent 34%),
+        linear-gradient(180deg, #080a0f 0%, #0b0f18 48%, #080a0f 100%);
+      line-height: 1.55;
+    }
+    a { color: inherit; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 28px; }
+    .nav { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 12px 0 44px; }
+    .brand { display: flex; align-items: center; gap: 12px; font-weight: 750; letter-spacing: -.02em; }
+    .mark { width: 36px; height: 36px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), var(--accent2)); box-shadow: 0 0 40px rgba(142,230,255,.25); }
+    .navlinks { display: flex; gap: 16px; color: var(--muted); font-size: 14px; }
+    .hero { padding: 46px 0 32px; display: grid; grid-template-columns: 1.2fr .8fr; gap: 28px; align-items: stretch; }
+    .eyebrow { display: inline-flex; gap: 8px; align-items: center; padding: 8px 12px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); background: rgba(255,255,255,.04); font-size: 13px; }
+    h1 { font-size: clamp(42px, 7vw, 82px); line-height: .96; margin: 22px 0; letter-spacing: -.07em; }
+    .lead { font-size: clamp(18px, 2vw, 23px); color: #c8d0e4; max-width: 760px; margin: 0 0 28px; }
+    .cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .btn { border: 1px solid var(--line); border-radius: 999px; padding: 13px 18px; text-decoration: none; font-weight: 700; background: rgba(255,255,255,.05); }
+    .btn.primary { color: #071018; background: linear-gradient(135deg, var(--accent), var(--accent2)); border: 0; }
+    .sidecard { background: rgba(16,20,31,.72); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow); backdrop-filter: blur(14px); }
+    .metric { padding: 16px 0; border-bottom: 1px solid var(--line); }
+    .metric:last-child { border-bottom: 0; }
+    .metric b { display: block; font-size: 28px; letter-spacing: -.04em; }
+    .metric span { color: var(--muted); font-size: 14px; }
+    .section { padding: 42px 0; }
+    h2 { font-size: clamp(30px, 4vw, 46px); line-height: 1.05; margin: 0 0 18px; letter-spacing: -.05em; }
+    .sub { color: var(--muted); max-width: 760px; margin: 0 0 28px; font-size: 17px; }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 18px; }
+    .cards3 { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 18px; }
+    .card { background: linear-gradient(180deg, rgba(255,255,255,.075), rgba(255,255,255,.035)); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; box-shadow: 0 16px 50px rgba(0,0,0,.24); }
+    .card h3 { margin: 0 0 10px; font-size: 24px; letter-spacing: -.03em; }
+    .card p { margin: 0 0 14px; color: var(--muted); }
+    .tag { display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 6px 10px; color: var(--muted); font-size: 12px; margin: 0 6px 8px 0; }
+    ul { padding-left: 20px; color: #cdd5e8; }
+    li { margin: 7px 0; }
+    .price { font-size: 34px; font-weight: 850; letter-spacing: -.05em; margin: 12px 0; }
+    .muted { color: var(--muted); }
+    .split { display: grid; grid-template-columns: .9fr 1.1fr; gap: 18px; align-items: start; }
+    .steps { counter-reset: step; }
+    .step { position: relative; padding: 18px 18px 18px 56px; border: 1px solid var(--line); border-radius: 18px; margin-bottom: 12px; background: rgba(255,255,255,.04); }
+    .step:before { counter-increment: step; content: counter(step); position: absolute; left: 18px; top: 17px; width: 26px; height: 26px; border-radius: 9px; display: grid; place-items: center; color: #071018; background: linear-gradient(135deg, var(--accent), var(--accent2)); font-weight: 800; }
+    .quote { font-size: 22px; color: #dfe6fb; border-left: 3px solid var(--accent); padding-left: 18px; margin: 0; }
+    .footer { padding: 42px 0 18px; color: var(--muted); border-top: 1px solid var(--line); margin-top: 34px; }
+    @media (max-width: 860px) {
+      .hero, .grid, .cards3, .split { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; }
+      .navlinks { flex-wrap: wrap; }
+      .wrap { padding: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <nav class="nav">
+      <div class="brand"><span class="mark"></span><span>AI Deal Room</span></div>
+      <div class="navlinks">
+        <a href="#repo">Repo Rescue</a>
+        <a href="#hr">HR Autopilot</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Start</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow">AI-first technical operator · launch readiness · Telegram automation</span>
+        <h1>From AI chaos to sellable systems.</h1>
+        <p class="lead">I help founders and small B2B teams turn broken repositories, unclear launches and manual hiring workflows into verified, documented and commercially usable systems.</p>
+        <div class="cta">
+          <a class="btn primary" href="#repo">Sell Repo Rescue</a>
+          <a class="btn" href="#hr">Sell HR Autopilot</a>
+        </div>
+      </div>
+      <aside class="sidecard">
+        <div class="metric"><b>$500–$1,500</b><span>Repo Diagnostic entry product</span></div>
+        <div class="metric"><b>$4k–$7k</b><span>7-day Repo Rescue Sprint</span></div>
+        <div class="metric"><b>150k RUB</b><span>14-day HR Autopilot pilot</span></div>
+        <div class="metric"><b>30 days</b><span>Target window for first paid deals</span></div>
+      </aside>
+    </section>
+
+    <section class="section">
+      <h2>Positioning</h2>
+      <p class="sub">This is not generic development by the hour. The offer is bounded technical execution with evidence: audit, blockers, controlled fixes, funnel maps, smoke checks, documentation and handover.</p>
+      <div class="grid">
+        <div class="card">
+          <h3>For founders</h3>
+          <p>When a product has code but is not ready for demo, launch or investor review.</p>
+          <span class="tag">AI-built MVPs</span><span class="tag">Launch blockers</span><span class="tag">Demo readiness</span>
+        </div>
+        <div class="card">
+          <h3>For operations teams</h3>
+          <p>When manual Telegram work, candidate messages and recruiter follow-up create measurable losses.</p>
+          <span class="tag">Mass hiring</span><span class="tag">Telegram funnels</span><span class="tag">Candidate statuses</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="repo" class="section">
+      <h2>Offer 1 — AI Repo Rescue Sprint</h2>
+      <p class="sub">For teams whose repository already exists but does not run reliably, does not deploy cleanly or cannot be shown with confidence.</p>
+      <div class="cards3">
+        <div class="card">
+          <h3>Repo Diagnostic</h3>
+          <div class="price">$500–$1,500</div>
+          <p>2–3 days. Technical report, blocker map, launch-readiness score and rescue estimate.</p>
+        </div>
+        <div class="card">
+          <h3>Rescue Sprint</h3>
+          <div class="price">$4k–$7k</div>
+          <p>7 days. Agreed critical fixes, run path, smoke checks, docs and next PR plan.</p>
+        </div>
+        <div class="card">
+          <h3>Production Readiness</h3>
+          <div class="price">$8k–$15k</div>
+          <p>14 days. Rescue plus CI/deployment hardening, release checklist and handover.</p>
+        </div>
+      </div>
+      <div class="split" style="margin-top:18px;">
+        <div class="card">
+          <h3>Best-fit cases</h3>
+          <ul>
+            <li>AI-generated MVP is unstable.</li>
+            <li>Contractor left unfinished code.</li>
+            <li>Demo or launch deadline is close.</li>
+            <li>Deployment path is unclear.</li>
+            <li>Founder needs an independent technical state report.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Output</h3>
+          <ul>
+            <li>Technical audit report.</li>
+            <li>Launch blocker list.</li>
+            <li>Risk map and go/no-go recommendation.</li>
+            <li>Controlled patch or PR plan.</li>
+            <li>Runbook and handover summary.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="hr" class="section">
+      <h2>Offer 2 — HR Autopilot</h2>
+      <p class="sub">Telegram-first automation for mass hiring. The goal is to reduce losses between a candidate response and an actual shift start.</p>
+      <div class="cards3">
+        <div class="card">
+          <h3>14-day pilot</h3>
+          <div class="price">150k RUB</div>
+          <p>One vacancy, one city, candidate bot flow, screening, statuses, recruiter handoff and report.</p>
+        </div>
+        <div class="card">
+          <h3>Expanded rollout</h3>
+          <div class="price">300k–500k RUB</div>
+          <p>Multiple vacancies or cities, improved scoring, source tracking and weekly funnel review.</p>
+        </div>
+        <div class="card">
+          <h3>Monthly support</h3>
+          <div class="price">50k–150k RUB</div>
+          <p>Funnel improvements, vacancy changes, reporting, message tests and operational support.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section">
+      <h2>How the sale works</h2>
+      <div class="split">
+        <div class="steps">
+          <div class="step"><b>Lead intake</b><br><span class="muted">Repo link or vacancy details.</span></div>
+          <div class="step"><b>Paid diagnostic or pilot</b><br><span class="muted">Small bounded entry product.</span></div>
+          <div class="step"><b>Evidence delivery</b><br><span class="muted">Report, blockers, funnel or run path.</span></div>
+          <div class="step"><b>Upsell</b><br><span class="muted">Rescue sprint, rollout or monthly support.</span></div>
+        </div>
+        <div class="card">
+          <h3>Sales rule</h3>
+          <p class="quote">Do not sell vague hours. Sell a bounded outcome with evidence.</p>
+          <p class="muted" style="margin-top:18px;">Every delivery should produce reusable proof: report, checklist, case study, screenshot, command evidence or funnel metrics.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="card">
+        <h2>Start with the fastest paid product</h2>
+        <p class="sub">Recommended first sale: AI Repo Rescue Diagnostic. It is simple to explain, fast to deliver and naturally leads into a larger sprint.</p>
+        <div class="cta">
+          <a class="btn primary" href="repo-rescue-intake.md">Repo Rescue intake</a>
+          <a class="btn" href="hr-autopilot-intake.md">HR Autopilot intake</a>
+          <a class="btn" href="outreach-scripts.md">Outreach scripts</a>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <p>AI Deal Room · Repo Rescue · HR Autopilot · Built for immediate B2B outbound and paid pilots.</p>
+    </footer>
+  </main>
+</body>
+</html>
