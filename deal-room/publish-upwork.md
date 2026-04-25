@@ -6,7 +6,11 @@ AI Repo Rescue Diagnostic
 
 ## Project title
 
-I will audit your AI-built MVP repository and create a launch blocker report
+An AI-built MVP repository audit and launch blocker report
+
+## Why this title
+
+Upwork Project Catalog titles may be displayed in a buyer-facing format similar to “You will get ...”. Do not start the title with “I will”. Use a noun phrase that reads cleanly after “You will get”.
 
 ## Category suggestion
 
@@ -72,6 +76,14 @@ Includes:
 - prioritized fix plan;
 - rescue sprint estimate;
 - handover call.
+
+## Revisions
+
+Recommended:
+
+- Basic: 0 revisions after delivery, clarification only.
+- Standard: 1 report clarification revision.
+- Advanced: 1 report clarification revision + handover call.
 
 ## Client requirements
 
