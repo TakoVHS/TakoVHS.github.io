@@ -233,7 +233,8 @@ code {
   font-size: 1.22rem;
 }
 
-.paper-links {
+.paper-links,
+.review-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 0.55rem 0.85rem;
@@ -244,8 +245,55 @@ code {
 }
 
 .paper-links a,
-.citation-box a {
+.citation-box a,
+.review-actions a {
   font-weight: 600;
+}
+
+.review-actions a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  padding: 0.42rem 0.72rem;
+  border: 1px solid var(--rule);
+  border-radius: 999px;
+  background: var(--surface);
+  text-decoration: none;
+}
+
+.review-actions a:hover,
+.review-actions a:focus {
+  border-color: var(--accent-line);
+  background: var(--accent-soft);
+}
+
+.evidence-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.8rem;
+  margin-top: 1.15rem;
+}
+
+.evidence-stat {
+  padding: 0.95rem 1rem;
+  border: 1px solid var(--rule);
+  border-radius: calc(var(--radius) - 6px);
+  background: var(--surface);
+}
+
+.evidence-stat strong {
+  display: block;
+  font-size: 1.45rem;
+  line-height: 1;
+}
+
+.evidence-stat span {
+  display: block;
+  margin-top: 0.35rem;
+  color: var(--muted);
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.35;
 }
 
 .status {
@@ -342,5 +390,9 @@ footer {
 
   .citation-box {
     padding: 0.85rem 0.9rem;
+  }
+
+  .evidence-stats {
+    grid-template-columns: 1fr;
   }
 }
